@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Firebase Realtime Database - Client Side</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main>
+    <form>
+        <label for="firstName">First Name</label><br>
+        <input type="text" name="firstName" id="firstName"><br>
+        <label for="lastName">Last Name</label><br>
+        <input type="text" name="lastName" id="lastName"><br>  
+        <label for="age">Age</label><br>
+        <input type="number" name="age" id="age"><br>
+        <button id="addBtn" class="btn waves-effect waves-light">Add</button>
+        <button id="readBtn" class="btn waves-effect waves-light">Read</button>
+        <button id="removeBtn" class="btn waves-effect red darken-1">Remove</button>
+    </form>
+  </main>
+
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-database.js"></script>
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyCvLen5lJavs7hekmJLAJobOWrvyqXcQKs",
+    authDomain: "homi-hub.firebaseapp.com",
+    databaseURL: "https://homi-hub-default-rtdb.firebaseio.com",
+    projectId: "homi-hub",
+    storageBucket: "homi-hub.appspot.com",
+    messagingSenderId: "1015214108082",
+    appId: "1:1015214108082:web:82c1adb461d1d0ec8688ab",
+    measurementId: "G-7YRG054QQS"
+};
+
+// Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+  <script src="./js/functions.js"></script>
+</body>
+</html>  
