@@ -31,7 +31,6 @@ readBtn.addEventListener('click', e => {
     rootRef.orderByKey().on('value', snapshot => {
     returnedList = snapshot.val();
     console.log(returnedList);
-    alert(snapshot.val());
 })
 });
 
