@@ -29,9 +29,13 @@ readBtn.addEventListener('click', e => {
     e.preventDefault();
     //query database
     rootRef.orderByKey().on('value', snapshot => {
-    returnedList = snapshot.val();
-    console.log(returnedList);
-})
+        snapshot.forEach(function(childSnapshot) {
+            var item = childSnapshot.val();
+            firstName.value = item.first_name;
+            lastName.value = item.last_name;
+            age.value = item.age;
+        })
+    })
 });
 
 // receive updates
