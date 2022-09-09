@@ -1,4 +1,4 @@
-# Homi-Hub
+# Homi
 Learn more about the Design of the web app using the following links:
 
 Feature's List: https://docs.google.com/document/d/1LNUwHSDRjr-xTL0ei8Qw8LpoSvZGnUzbJYskTm_T9S8/edit?usp=sharing
