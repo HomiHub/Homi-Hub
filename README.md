@@ -6,3 +6,5 @@ Feature's List: https://docs.google.com/document/d/1LNUwHSDRjr-xTL0ei8Qw8LpoSvZG
 Requirements Specification: https://docs.google.com/document/d/1VUEb-P1VizQ9dkMFIBENs4ljDq6QgJCfciSZNZKg-co/edit?usp=sharing
 
 Design Specification: https://docs.google.com/document/d/1gAtyS6WhD3x4sZ_X5pHGavpApmObpcRCzXjmbZPjI6Y/edit?usp=sharing
+
+Database User add/del: https://homihub.github.io/Homi-Hub/
