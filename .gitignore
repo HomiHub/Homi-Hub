@@ -1,6 +1,8 @@
 # MacOS Stuff
 .DS_Store
 
+app.js
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

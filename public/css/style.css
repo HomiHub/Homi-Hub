@@ -1,0 +1,119 @@
+
+h1{
+    font-family: 'Montserrat ', sans-serif;
+    font-weight:900;
+    font-size: 4rem;
+    line-height: 1.5;
+    padding-bottom: 30px;
+}
+
+h2{
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 3rem;
+    line-height: 1.5;
+    opacity: 0.5;
+}
+
+body{
+    font-family: "Montserrat", sans-serif;
+    background-color: #369dfc;
+}
+
+
+/* CLASSES */
+
+
+.signup-form {
+    padding: 7% 15% 0 15%;
+    /* height: 100vh; */
+}
+
+.card-style {
+    /* background-color: #a2d2fe; */
+    align-items: center;
+    width: 60%;
+    height: 100%;
+}
+
+
+.input-style {
+    background-color: #a2d2fe;
+    height: 10%;
+    width: 100%;
+    margin-top: 10%;
+    border: 0;
+    padding: 5%;
+}
+
+.img-col {
+    text-align: center;
+    opacity: 0.5;
+}
+
+.signup-btn {
+    background-color: #3eb3fa;
+    margin-top: 10%;
+    border: 0;
+    padding: 7% 17% 7%;
+    position: relative;
+    left: 20%;
+    border-radius: 45%;
+    color: rgba(255, 255, 255, 0.693);
+    font-weight: bold;
+}
+/* Navigation bar */
+
+.navbar{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-bottom: 3rem;
+    padding-right: 5%;
+}
+.navbar-brand{
+    font-family: "Ubuntu";
+    font-size: 4rem;
+    font-weight: bold;
+    padding-left: 40%;
+
+
+
+}
+
+.nav-item{
+    padding: 0 18px;
+}
+
+.nav-link{
+    font-size: 1.5rem;
+    font-family: "Montserrat";
+    font-weight:300 ;
+}
+
+
+/* 
+.features-icon:hover{
+    color: #ff3c68;
+} */
+
+
+
+/* pricing column */
+/* .pricing-column{
+    padding: 3% 2%;
+    text-align: center;
+} */
+
+
+/* @media (max-width: 1200px){
+    .iphone-img{
+        position: static;
+        transform: rotate(0);
+        width: 60%;
+        margin-top: 30px;
+    }
+    #title{
+        text-align: center;
+    }
+} */
