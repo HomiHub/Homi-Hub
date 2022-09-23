@@ -6,8 +6,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 
-const fireInit = require("firebase/app")
-const fireAuth = require("firebase/auth")
+const fireInit = require("firebase/app");
+const fireAuth = require("firebase/auth");
+const realTimedb = require("firebase/database");
 
 const firebaseConfig = {
     apiKey: "AIzaSyAqpDluhK8saUWR1SfBXDhvFwX3worwRQo",
@@ -24,6 +25,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const fireApp = fireInit.initializeApp(firebaseConfig);
 const auth = fireAuth.getAuth(fireApp);
+const db = realTimedb.getDatabase(fireApp);
+
 
 app.get("/", function(req, res) {
     res.send("server is running ");
@@ -37,8 +40,18 @@ app.post("/signup", function(req, res) {
     console.log(req.body);
     const email = req.body.email;
     const pass = req.body.password;
-    fireAuth.createUserWithEmailAndPassword(auth, email, pass).then(cred => console.log(cred));
-    res.send("<h1>A new account was created successfully<h1>");
+    fireAuth.createUserWithEmailAndPassword(auth, email, pass).then(function(cred) {
+         const Uid = cred.user.uid;
+         console.log("UID printed below");
+         console.log(Uid);
+         realTimedb.set(realTimedb.ref(db, 'users/' + Uid), {
+            FirstName: req.body.fName,
+            LastName: req.body.lName,
+        })
+    }).catch(function(error) {
+        res.send("<h1>" + error.code + "<h1>");
+    }).finally(() => res.send("<h1>A new account was created successfully<h1>")
+    ) 
 })
 
 
