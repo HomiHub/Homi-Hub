@@ -1,0 +1,40 @@
+.navbar{
+    position: relative;
+    align-items: center;
+    padding-bottom: 0rem;
+    padding-right: 5%;
+    margin-left: 0%;
+}
+
+.navbar-brand{
+    font-family: "Ubuntu";
+    font-size: 3rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-link{
+    font-size: 1.5rem;
+    font-family: "Montserrat";
+    font-weight: 300 ;
+    padding-left: 20px;
+}
+
+.Header{
+    background-color: #4BD8F6;
+    padding: 0;
+}
+
+.container{
+    text-align: left;
+    display: inline-flex;
+}
+
+.LogoText{
+    padding-top: 20px;
+    margin-left: 200px;
+}
+
+.HeaderLinks{
+    padding-top: 20px;
+}

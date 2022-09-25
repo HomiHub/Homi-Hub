@@ -1,9 +1,12 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./bootstrapOverride.scss"
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import Registration from "./Pages/Registration";
-import Header from "./Header";
-import Footer from "./Footer";
-import Login from "./Pages/LogIn";
-import ErrorPage from "./Pages/ErrorPage"
+import Registration from "../registration/Registration";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
+import Login from "../login/LogIn";
+import ErrorPage from "../error/ErrorPage"
+
 
 
 function App() {
@@ -12,13 +15,11 @@ function App() {
     <Router>
       <div>
         <Header></Header>
-        <div>
         <Routes>
-          <Route path="/" element={<Registration />}></Route>
-          <Route path="/login" element={<Login />}></Route>
+          <Route path="/" element={<Login />}></Route>
+          <Route path="/registration" element={<Registration />}></Route>
           <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
-        </div>
         <Footer></Footer>
       </div>
     </Router>

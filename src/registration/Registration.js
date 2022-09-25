@@ -1,7 +1,9 @@
 import React, {useState} from "react";
-import {db} from "../firebase";
+import {db} from "../components/firebase";
 import { uid } from "uid";
 import { set, ref } from "firebase/database";
+import "./registration.css"
+
 
 function Registration() {
 
@@ -67,13 +69,13 @@ function Registration() {
 
 
   return (
-    <div className="container">
-      <h1>Homi Hub Registration </h1>
-      <input type="text" placeholder="First Name" value={firstName} onChange={handleFirstNameChange} />
-      <input type="text" placeholder="Last Name" value={lastName} onChange={handleLastNameChange} />
-      <input type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
-      <input type="text" placeholder="Password" value={password} onChange={handlePasswordChange} />
-      <button style={{backgroundColor: isMouseOver ? "black": "white" }} 
+    <div className="registration">
+      <h1>Create an Account </h1>
+      <input class="registrationInput" type="text" placeholder="First Name" value={firstName} onChange={handleFirstNameChange} />
+      <input class="registrationInput" type="text" placeholder="Last Name" value={lastName} onChange={handleLastNameChange} />
+      <input class="registrationInput" type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
+      <input class="registrationInput" type="text" placeholder="Password" value={password} onChange={handlePasswordChange} />
+      <button className="registrationButton" style={{backgroundColor: isMouseOver ? "black": "white" }} 
               onClick={writeToDB}
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
