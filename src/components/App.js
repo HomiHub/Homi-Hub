@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Registration from "../registration/Registration";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
-import Login from "../login/LogIn";
+import LogIn from "../login/LogIn";
 import ErrorPage from "../error/ErrorPage"
 
 
@@ -16,8 +16,9 @@ function App() {
       <div>
         <Header></Header>
         <Routes>
-          <Route path="/" element={<Login />}></Route>
+          <Route path="/" element={<LogIn />}></Route>
           <Route path="/registration" element={<Registration />}></Route>
+          <Route path="/login" element={<LogIn />}></Route>
           <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
         <Footer></Footer>

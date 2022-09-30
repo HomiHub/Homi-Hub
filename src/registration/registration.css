@@ -1,8 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-  }
-  
   /*This applies to everything. The app lives inside the body of index.html.
   This includes the header and footer. Be careful what you change here*/
   body {
@@ -11,21 +6,28 @@
   }
   
   .registration {
-    margin: 5% auto;
-    padding: 40px 0;
+    background-color: rgba(252, 252, 252, 0.2);
+    width: 475px;
+    padding-bottom: 40px;
     text-align: center;
+  }
+
+  .registration p{
+    color: white;
+    padding-top: 20px;
+    font-size: 22px;
   }
   
   .registration h1 {
     font-size: 40px;
     font-weight: 200;
-    color: grey;
+    color: white;
   }
   
   .registrationInput {
     border: 1px solid rgba(252, 252, 252, 0.4);
-    background-color: rgba(252, 252, 252, 0.2);
-    width: 250px;
+    background-color: rgba(252, 252, 252, 0.5);
+    width: 400px;
     border-radius: 3px;
     font-family: "Source Sans Pro", sans-serif;
     padding: 10px 15px;
@@ -40,12 +42,48 @@
   
  .registrationButton {
     appearance: none;
-    outline: 0;
-    border: 0;
+    outline:1px solid rgba(252, 252, 252, 0.4);
+    border: 0px;
     padding: 10px 15px;
-    color: grey;
-    border-radius: 3px;
-    width: 250px;
+    color: white;
+    border-radius: 20px;
+    width: 175px;
     font-size: 18px;
   }
+
+  .registrationMiddle{
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content:center;
+    margin-bottom: 50px;
+  }
+
+  .registrationMiddle img {
+    opacity: 0.8;
+    height: fit-content;
+    width: fit-content;
+    padding-top: 0px;
+    margin-bottom: 130px;
+  }
+
+  .regTopText{
+    padding-top: 0px;
+    margin-top: 0px;
+    display:inline-flex;
+  }
+
+  .regTopText img{
+    width: 100px;
+    opacity: 0.8;
+    padding-top: 20px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+  }
+
+  .regTopText p{
+    font-size: 20px;
+    padding-top: 50px;
+  }
+
   
