@@ -5,7 +5,8 @@ import Registration from "../registration/Registration";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import Login from "../login/LogIn";
-import ErrorPage from "../error/ErrorPage"
+import ErrorPage from "../error/ErrorPage";
+import Tracker from "../gpsTracker/Tracker";
 
 
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/registration" element={<Registration />}></Route>
+          <Route path="/tracker" element={<Tracker />}></Route>
           <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
         <Footer></Footer>
