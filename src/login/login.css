@@ -1,3 +1,41 @@
 .loginWecome {
     color: black;
   }
+
+  .login {
+    background-color: rgba(252, 252, 252, 0.2);
+    width: 475px;
+    padding-bottom: 40px;
+    text-align: center;
+    height: 450px
+  }
+
+  .login img{
+    width: 125px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+
+  .login p{
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+  }
+
+  .login button{
+    margin-bottom: 20px;
+  }
+
+  .loginMiddle{
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content:center;
+    margin-bottom: 50px;
+  }
+
+  .loginMiddle img {
+    opacity: 0.8;
+    padding-top: 0px;
+    margin-bottom: 20px;
+  }
