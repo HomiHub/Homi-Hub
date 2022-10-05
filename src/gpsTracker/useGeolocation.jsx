@@ -4,6 +4,7 @@ const useGeolocation = () => {
     const [location, setLocation] = useState({
         loaded: false,
         coordinates: {lat: "", lng: "" },
+        errorCode: {}
     });
 
     const onSuccess = (location) => {
@@ -20,7 +21,7 @@ const useGeolocation = () => {
     const OnError = (error) => {
         setLocation({
             loaded: true,
-            error,
+            errorCode: error.code,
         });
     }
 

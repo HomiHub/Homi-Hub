@@ -3,7 +3,8 @@ import reactDom from "react-dom/client";
 import useGeolocation from "./useGeolocation";
 import { GoogleMap, useLoadScript, Marker, MarkerF } from '@react-google-maps/api';
 import "./styles.css";
-
+import { Spinner } from "react-bootstrap";
+import homi from "../assets/homi.png"
 
 function Tracker() {
     const {isLoaded} = useLoadScript({googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,});
@@ -18,23 +19,23 @@ function Tracker() {
 function Map() {
     const location = useGeolocation();
     console.log("check here " + JSON.stringify(location));
-    let loc = JSON.stringify(location);
-    console.log("look: " + Object.keys(loc));
-    if (location.loaded) {
+    console.log("look: " + Object.keys(location));
+    if (location.loaded && location.coordinates != undefined) {
         return (
-            JSON.stringify(location));
-        // <GoogleMap zoom={10} center={{lat: location.coordinates.lat, lng: location.coordinates.lng}} mapContainerClassName="map-container">
-        //     <MarkerF position={{lat: location.coordinates.lat, lng: location.coordinates.lng}} />
-        // </GoogleMap>);
+        <GoogleMap zoom={10} center={{lat: location.coordinates.lat, lng: location.coordinates.lng}} mapContainerClassName="map-container">
+            <MarkerF icon={homi} position={{lat: location.coordinates.lat, lng: location.coordinates.lng}} />
+        </GoogleMap>);
     }
-    else if ((location.loaded && location.error !== null)) {
+    else if ((location.loaded && location.errorCode == 1)) {
         return (
-            <div>User denied location permission</div>
+            <div className="error-box">Please Allow Location Access and Refresh the Page</div>
         )
     }
     else {
         return(
-            <div> Location data are not available</div>
+            <div id="spinner-div">
+                <Spinner className="spinner-style" animation="border" role="status"></Spinner>
+            </div>
         )
     }
 }
