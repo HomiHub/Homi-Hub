@@ -6,6 +6,8 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import LogIn from "../login/LogIn";
 import ErrorPage from "../error/ErrorPage"
+import JoinAFamily from "../registration/JoinAFamily"
+import FamilyHomePage from "../familyHomePage/familyHomePage"
 
 
 
@@ -19,6 +21,8 @@ function App() {
           <Route path="/" element={<LogIn />}></Route>
           <Route path="/registration" element={<Registration />}></Route>
           <Route path="/login" element={<LogIn />}></Route>
+          <Route path="/joinafamily" element={<JoinAFamily />}></Route>
+          <Route path="/familyHomePage" element={<FamilyHomePage />}></Route>
           <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
         <Footer></Footer>

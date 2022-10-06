@@ -58,7 +58,7 @@ function LogIn()
         <p>Get together online as a family!</p>
         <input class="registrationInput" type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
         <input class="registrationInput" type="text" placeholder="Password" value={password} onChange={handlePasswordChange} />
-        <button className="registrationButton" style={{backgroundColor: isMouseOver ? "black": "#369dfc" }} 
+        <button className="registrationButton" style={{backgroundColor: isMouseOver ? "blue": "#369dfc" }} 
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
                 onClick={login}

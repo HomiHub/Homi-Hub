@@ -6,8 +6,11 @@ import { auth } from "../components/firebase";
 import "./registration.css"
 import backPick from "../assets/homi-no-bg.png"
 import Logo from "../assets/homi-icon.png"
+import { useNavigate } from "react-router-dom";
 
 function Registration() {
+
+  let navigate = useNavigate();
 
   const[firstName, setFirstName] = useState("");
   const[lastName, setLastName] = useState("");
@@ -45,15 +48,11 @@ function Registration() {
       console.log(user);
       const id = auth.currentUser.uid;
       //save other info to database
-      set(ref(db, `/users/"${id}`),{
-        first_name: firstName,
-        last_name: lastName,
+      set(ref(db, `/users/${id}`),{
+        firstName: firstName,
+        lastName: lastName,
       })
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setPassword("");
-      setPassword2("");
+      navigate('/joinafamily');
     }
     //catch any errors such as an invalid email when creating an account
     catch (error) {
@@ -90,7 +89,7 @@ function Registration() {
         <input class="registrationInput" type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
         <input class="registrationInput" type="text" placeholder="Password" value={password} onChange={handlePasswordChange} />
         <input class="registrationInput" type="text" placeholder="Re-Type Password" value={password} onChange={handlePasswordChange} />
-        <button className="registrationButton" style={{backgroundColor: isMouseOver ? "black": "#369dfc" }} 
+        <button className="registrationButton" style={{backgroundColor: isMouseOver ? "blue": "#369dfc" }} 
                 onClick={register}
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
