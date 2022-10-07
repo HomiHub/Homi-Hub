@@ -29,6 +29,7 @@ function LogIn()
     try{
       //authenticate login credentials
       await signInWithEmailAndPassword(auth, email, password);
+      navigate("/familyHomePage")
       setEmail("");
       setPassword("");
     }
