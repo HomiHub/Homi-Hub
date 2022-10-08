@@ -6,6 +6,7 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import LogIn from "../login/LogIn";
 import ErrorPage from "../error/ErrorPage"
+import ErrandTracker from '../errandTracker/ErrandTracker';
 
 
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<LogIn />}></Route>
           <Route path="/registration" element={<Registration />}></Route>
           <Route path="/login" element={<LogIn />}></Route>
+          <Route path="/errandTracker" element={<ErrandTracker />}></Route>
           <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
         <Footer></Footer>
