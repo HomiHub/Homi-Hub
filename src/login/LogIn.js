@@ -56,8 +56,8 @@ function LogIn()
       <div className="login">
         <img src={Logo} alt="site icon"></img>
         <p>Get together online as a family!</p>
-        <input className="registrationInput" type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
-        <input className="registrationInput" type="text" placeholder="Password" value={password} onChange={handlePasswordChange} />
+        <input class="registrationInput" type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
+        <input class="registrationInput" type="text" placeholder="Password" value={password} onChange={handlePasswordChange} />
         <button className="registrationButton" style={{backgroundColor: isMouseOver ? "black": "#369dfc" }} 
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
