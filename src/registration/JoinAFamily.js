@@ -24,8 +24,10 @@ function JoinAFamily() {
   //create a family group and set the user as admin
   const createFamily = async () => {
     try{
+        //grab the id of the logged in user
         const id = auth.currentUser.uid;
 
+        //create a unique family id, add all family database categories to the database and their family name
         const familyRef = push(ref(db, 'families'),{
           calendar: "",
           chat: "",
@@ -45,21 +47,26 @@ function JoinAFamily() {
       console.log(familyKey);
       console.log(id);
 
+      //update the family to add the user who created it as an admin
       update(ref(db, `families/${familyKey}/admins`),{
         [id]: ""
       });
 
+      //update the family to add the user who created it as a member
       update(ref(db, `families/${familyKey}/members`),{
         [id]: ""
       });
 
+      //update the user account to add the unique family id they just created to their list of families
       update(ref(db, `users/${id}/families`),{
         [familyKey]: familyName
       });
+
+      //navigate the user to the family home page after successfully creating a family
       navigate('/familyHomePage');
       
     }
-    //catch any errors such as an invalid email when creating an account
+    //catch any errors such as an invalid family name
     catch (error) {
       console.log(error.message);
     }

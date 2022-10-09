@@ -1,9 +1,7 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css"
-import {db} from "../components/firebase";
-import { set, ref } from "firebase/database";
-import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../components/firebase";
 import backPick from "../assets/homi-no-bg.png"
 import Logo from "../assets/homi-icon.png"
@@ -29,12 +27,15 @@ function LogIn()
     try{
       //authenticate login credentials
       await signInWithEmailAndPassword(auth, email, password);
+      //if the user successfully logged in, they send to the family home page for now
+      //needs to be updated to choose which family they want to view.
       navigate("/familyHomePage")
       setEmail("");
       setPassword("");
     }
     //catch any errors such as an invalid email when creating an account
     catch (error) {
+      //need to display these errors to the user so they can fix and retry
       console.log(error.message);
     }
   };

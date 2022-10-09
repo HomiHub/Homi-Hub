@@ -1,3 +1,4 @@
+//this handles all the page routing using react-router-dom
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./bootstrapOverride.scss"
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
@@ -10,9 +11,9 @@ import JoinAFamily from "../registration/JoinAFamily"
 import FamilyHomePage from "../familyHomePage/familyHomePage"
 
 
-
+//path is url browser path that leads to each page
+//element is the imported page that you want the website to navigate to
 function App() {
-
   return (
     <Router>
       <div>
@@ -32,5 +33,3 @@ function App() {
 }
 
 export default App;
-
-//<a href="/home"> Go to home page</a>   //under router
