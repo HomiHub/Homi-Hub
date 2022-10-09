@@ -27,7 +27,14 @@ const RandomMeal = () => {
 
     if(!meal) return null;
 
-    
+    // const{
+    //     strMeal,
+    //     strMealThumb,
+    //     strInstructions,
+    //     strArea,
+    //     strCategory
+    // } = meal;
+
 
     return (
         <section className ="container">
