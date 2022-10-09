@@ -23,7 +23,7 @@ const Meal = ({ meal }) => {
         <div className="meal-details">
             <h2 className="meal-title">{strMeal}</h2>
             <p className="meal-instruction">
-                {strInstructions&& strInstructions.substring(0, 200) + "..."}
+                {strInstructions && strInstructions.substring(0, 200) + "..."}
                 </p>
 
             <ul className="meal-info">
