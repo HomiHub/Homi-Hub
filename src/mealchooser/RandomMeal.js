@@ -20,7 +20,7 @@ const RandomMeal = () => {
         getMeal();
     }, []);
 
-    if(!meal) return null;
+    if (!meal) return null;
 
     console.log(meal);
 

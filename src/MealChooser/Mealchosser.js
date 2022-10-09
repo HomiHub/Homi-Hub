@@ -1,8 +1,6 @@
 import React from "react";
-import {RandomMeal} from "./Mcomponents";
-// import {RandomMeal} from 'C:\\Users\\ashur\\Documents\\GitHub\\Homi-Hub\\src\\mealchooser\\Mcomponents';
-
-// import RandomMeal from "../Mcomponents/RandomMeal";
+// import { RandomMeal } from "./Mcomponents";
+import RandomMeal from "./RandomMeal";
 import "./mealchooser.css"
 
 
