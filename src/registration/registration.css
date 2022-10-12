@@ -86,4 +86,22 @@
     padding-top: 50px;
   }
 
-  
+  .joinAFamilyh1{
+    font-size: 40px;
+    font-weight: 200;
+    color: white;
+    margin: 20px 0px;
+  }
+
+  .joinafamilyButton{
+    appearance: none;
+    outline:1px solid rgba(252, 252, 252, 0.4);
+    border: 0px;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 20px;
+    width: 175px;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+

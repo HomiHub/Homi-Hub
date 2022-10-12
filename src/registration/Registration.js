@@ -8,8 +8,11 @@ import { storage } from "../components/firebase";
 import "./registration.css"
 import backPick from "../assets/homi-no-bg.png"
 import Logo from "../assets/homi-icon.png"
+import { useNavigate } from "react-router-dom";
 
 function Registration() {
+
+  let navigate = useNavigate();
 
   const[firstName, setFirstName] = useState("");
   const[lastName, setLastName] = useState("");
@@ -17,6 +20,7 @@ function Registration() {
   const[password, setPassword] = useState("");
   const[password2, setPassword2] = useState("");
   const[imageUpload, setImageUpload] = useState(null);
+
   const submit = useState("Sign Up Now!");
   const [isMouseOver, setMouseOver] = useState(false);
 
@@ -60,6 +64,7 @@ function Registration() {
       console.log(user);
       const id = auth.currentUser.uid;
       //save other info to database
+
       set(ref(db, `/users/"${id}`),{
         first_name: firstName,
         last_name: lastName,
@@ -71,6 +76,8 @@ function Registration() {
       setPassword("");
       setPassword2("");
       setImageUpload(null);
+      
+      navigate('/joinafamily');
     }
     //catch any errors such as an invalid email when creating an account
     catch (error) {
@@ -109,6 +116,7 @@ function Registration() {
         <input className="registrationInput" type="password" placeholder="Re-Type Password" value={password} onChange={handlePasswordChange} />
         <input className="registrationInput" type="file" onChange={handleImageChange}/>
         <button className="registrationButton" style={{backgroundColor: isMouseOver ? "black": "#369dfc" }} 
+
                 onClick={register}
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}

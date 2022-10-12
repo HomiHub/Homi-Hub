@@ -7,8 +7,9 @@ import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebas
 import { auth } from "../components/firebase";
 import backPick from "../assets/homi-no-bg.png"
 import Logo from "../assets/homi-icon.png"
-
-
+import { auth } from "../components/firebase";
+import backPick from "../assets/homi-no-bg.png"
+import Logo from "../assets/homi-icon.png"
 
 function LogIn() 
 {
@@ -32,11 +33,16 @@ function LogIn()
     try{
       //authenticate login credentials
       let userCred = await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
+      //if the user successfully logged in, they send to the family home page for now
+      //needs to be updated to choose which family they want to view.
+      navigate("/familyHomePage")
       setEmail("");
       setPassword("");
     }
     //catch any errors such as an invalid email when creating an account
     catch (error) {
+      //need to display these errors to the user so they can fix and retry
       console.log(error.message);
     }
   };
@@ -62,6 +68,7 @@ function LogIn()
         <input className="registrationInput" type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
         <input className="registrationInput" type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
         <button className="registrationButton" style={{backgroundColor: isMouseOver ? "black": "#369dfc" }} 
+        <button className="registrationButton" style={{backgroundColor: isMouseOver ? "blue": "#369dfc" }} 
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
                 onClick={login}
