@@ -8,8 +8,11 @@ import { auth } from "../components/firebase";
 import backPick from "../assets/homi-no-bg.png"
 import Logo from "../assets/homi-icon.png"
 
+
+
 function LogIn() 
 {
+  const [user, setUser] = useState(null);
   let navigate = useNavigate();
 
   const[email, setEmail] = useState("");
@@ -28,7 +31,7 @@ function LogIn()
   const login = async () => {
     try{
       //authenticate login credentials
-      await signInWithEmailAndPassword(auth, email, password);
+      let userCred = await signInWithEmailAndPassword(auth, email, password);
       setEmail("");
       setPassword("");
     }
@@ -56,8 +59,8 @@ function LogIn()
       <div className="login">
         <img src={Logo} alt="site icon"></img>
         <p>Get together online as a family!</p>
-        <input class="registrationInput" type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
-        <input class="registrationInput" type="text" placeholder="Password" value={password} onChange={handlePasswordChange} />
+        <input className="registrationInput" type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
+        <input className="registrationInput" type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
         <button className="registrationButton" style={{backgroundColor: isMouseOver ? "black": "#369dfc" }} 
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}

@@ -6,10 +6,16 @@ import "./styles.css";
 import { Spinner } from "react-bootstrap";
 import homi from "../assets/homi.png"
 import { get, onValue, ref, set } from "firebase/database";
-import {db} from "../components/firebase";
+import { db } from "../components/firebase";
+import { userToken } from "../login/LogIn.js";
+import { useNavigate } from "react-router-dom";
+
 
 function Tracker() {
-
+    // let navigate = useNavigate();
+    // console.log(userToken);
+    // navigate('/');
+    // if(userToken === null) { navigate('/'); }
     const {isLoaded} = useLoadScript({googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,});
     const[myLocation, setLocation] = useState({location: {
         lat: 110,
@@ -40,12 +46,5 @@ function Tracker() {
     );
 }
 
-
-function Map() {
-
-    return (
-        <GoogleMap zoom={10} center={{lat: 110, lng: 18}} mapContainerClassName="map-container"></GoogleMap>
-    );
-}
 
 export default Tracker;

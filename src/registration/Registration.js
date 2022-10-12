@@ -105,8 +105,8 @@ function Registration() {
         <input className="registrationInput" type="text" placeholder="First Name" value={firstName} onChange={handleFirstNameChange} />
         <input className="registrationInput" type="text" placeholder="Last Name" value={lastName} onChange={handleLastNameChange} />
         <input className="registrationInput" type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
-        <input className="registrationInput" type="text" placeholder="Password" value={password} onChange={handlePasswordChange} />
-        <input className="registrationInput" type="text" placeholder="Re-Type Password" value={password} onChange={handlePasswordChange} />
+        <input className="registrationInput" type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
+        <input className="registrationInput" type="password" placeholder="Re-Type Password" value={password} onChange={handlePasswordChange} />
         <input className="registrationInput" type="file" onChange={handleImageChange}/>
         <button className="registrationButton" style={{backgroundColor: isMouseOver ? "black": "#369dfc" }} 
                 onClick={register}

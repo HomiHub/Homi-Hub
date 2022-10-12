@@ -7,7 +7,8 @@ import Footer from "../footer/Footer";
 import LogIn from "../login/LogIn";
 import ErrorPage from "../error/ErrorPage";
 import Tracker from "../gpsTracker/Tracker";
-
+import { userToken } from "../login/LogIn";
+import PrivateRoute from "./PrivateRoute"
 
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
         <Routes>
           <Route path="/" element={<LogIn />}></Route>
           <Route path="/registration" element={<Registration />}></Route>
-          <Route path="/tracker" element={<Tracker />}></Route>
+          <Route element={<PrivateRoute/>}>
+            <Route path="/tracker" element={<Tracker />}></Route>
+          </Route>
           <Route path="/login" element={<LogIn />}></Route>
           <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
