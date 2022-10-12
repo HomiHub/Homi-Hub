@@ -65,7 +65,7 @@ function Registration() {
       const id = auth.currentUser.uid;
       //save other info to database
 
-      set(ref(db, `/users/"${id}`),{
+      set(ref(db, `/users/${id}`),{
         first_name: firstName,
         last_name: lastName,
       })
