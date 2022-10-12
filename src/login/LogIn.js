@@ -7,9 +7,6 @@ import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebas
 import { auth } from "../components/firebase";
 import backPick from "../assets/homi-no-bg.png"
 import Logo from "../assets/homi-icon.png"
-import { auth } from "../components/firebase";
-import backPick from "../assets/homi-no-bg.png"
-import Logo from "../assets/homi-icon.png"
 
 function LogIn() 
 {
@@ -67,7 +64,6 @@ function LogIn()
         <p>Get together online as a family!</p>
         <input className="registrationInput" type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
         <input className="registrationInput" type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
-        <button className="registrationButton" style={{backgroundColor: isMouseOver ? "black": "#369dfc" }} 
         <button className="registrationButton" style={{backgroundColor: isMouseOver ? "blue": "#369dfc" }} 
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
