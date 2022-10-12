@@ -1,13 +1,19 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css"
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {db} from "../components/firebase";
+import { set, ref } from "firebase/database";
+import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { auth } from "../components/firebase";
+import backPick from "../assets/homi-no-bg.png"
+import Logo from "../assets/homi-icon.png"
 import { auth } from "../components/firebase";
 import backPick from "../assets/homi-no-bg.png"
 import Logo from "../assets/homi-icon.png"
 
 function LogIn() 
 {
+  const [user, setUser] = useState(null);
   let navigate = useNavigate();
 
   const[email, setEmail] = useState("");
@@ -26,6 +32,7 @@ function LogIn()
   const login = async () => {
     try{
       //authenticate login credentials
+      let userCred = await signInWithEmailAndPassword(auth, email, password);
       await signInWithEmailAndPassword(auth, email, password);
       //if the user successfully logged in, they send to the family home page for now
       //needs to be updated to choose which family they want to view.
@@ -58,8 +65,9 @@ function LogIn()
       <div className="login">
         <img src={Logo} alt="site icon"></img>
         <p>Get together online as a family!</p>
-        <input class="registrationInput" type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
-        <input class="registrationInput" type="text" placeholder="Password" value={password} onChange={handlePasswordChange} />
+        <input className="registrationInput" type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
+        <input className="registrationInput" type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
+        <button className="registrationButton" style={{backgroundColor: isMouseOver ? "black": "#369dfc" }} 
         <button className="registrationButton" style={{backgroundColor: isMouseOver ? "blue": "#369dfc" }} 
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
