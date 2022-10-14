@@ -1,56 +1,48 @@
 import React, {useState} from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import "./login.css"
 import {db} from "../components/firebase";
 import { set, ref } from "firebase/database";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth as fireBaseAuth } from "../components/firebase";
 import backPick from "../assets/homi-no-bg.png"
 import Logo from "../assets/homi-icon.png"
 import { useAuth } from "../components/auth";
 import { Alert } from "react-bootstrap";
 
-function LogIn() 
+
+function ForgotPassword() 
 {
-  const { signin } = useAuth();
+  const { resetPassword } = useAuth();
 
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const redirectPath = location.state?.path || '/';
 
   const[email, setEmail] = useState("");
-  const[password, setPassword] = useState("");
-  const submit = useState("Login");
+  const submit = useState("Reset Password");
   const [isMouseOver, setMouseOver] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const [message, setMessage] = useState("");
   const handleEmailChange=(e)=>{
     setEmail(e.target.value)
   };
 
-  const handlePasswordChange=(e)=>{
-    setPassword(e.target.value)
-  };
+
 
   const login = async () => {
     try{
+      setMessage("");
       setError("");
       setLoading(true);
       //authenticate login credentials
-      let userCred = await signin(email, password);
+      await resetPassword(email);
       //if the user successfully logged in, they send to the family home page for now
       //needs to be updated to choose which family they want to view.
-      navigate(redirectPath, {replace: true})
+      setMessage("check you email to continue reseting your password");
       setEmail("");
-      setPassword("");
     }
     //catch any errors such as an invalid email when creating an account
     catch (error) {
       //need to display these errors to the user so they can fix and retry
-      console.log("this error ", error.message);
-      setError(error.message);
+      console.log(error.message);
+      setError("Failed to Reset Password");
     }
     setLoading(false);
   };
@@ -69,23 +61,19 @@ function LogIn()
       <img src={backPick} alt="background_Picture" />
       <div className="login">
         <img src={Logo} alt="site icon"></img>
-        <p>Get together online as a family!</p>
+        <p>Password Reset</p>
         {error && <Alert variant="danger">{error}</Alert>}
+        {message && <Alert variant="success">{message}</Alert>}
         <input className="registrationInput" type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
-        <input className="registrationInput" type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
-        <button disabled={loading} className="registrationButton" style={{backgroundColor: isMouseOver ? "black": "#369dfc" }} 
+        <button disabled={loading} className="registrationButton mt-3" style={{backgroundColor: isMouseOver ? "black": "#369dfc" }} 
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
                 onClick={login}
         >{submit}</button>
-        <div className="mb-1" ><Link to="/forgot-password"> Forgot Password?</Link> </div>
-        <p>
-          No account?&nbsp;
-          <a href="./registration">Sign Up</a>
-        </p>
+        <div className="mb-1" ><Link to="/"> Log in</Link> </div>
       </div>
     </div>
   );
 }
 
-export default LogIn;
+export default ForgotPassword;

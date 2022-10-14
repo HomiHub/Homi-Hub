@@ -7,35 +7,36 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import LogIn from "../login/LogIn";
 import Tracker from "../gpsTracker/Tracker";
-import { userToken } from "../login/LogIn";
-import PrivateRoute from "./PrivateRoute"
 import ErrorPage from "../error/ErrorPage"
 import JoinAFamily from "../registration/JoinAFamily"
 import FamilyHomePage from "../familyHomePage/familyHomePage"
-
+import { AuthProvider } from './auth';
+import { PrivateRoute } from './PrivateRoute';
+import ForgotPassword from './ForgotPassword';
 
 //path is url browser path that leads to each page
 //element is the imported page that you want the website to navigate to
 function App() {
   return (
-    <Router>
-      <div>
-        <Header></Header>
-        <Routes>
-          <Route path="/" element={<LogIn />}></Route>
-          <Route path="/registration" element={<Registration />}></Route>
-          <Route element={<PrivateRoute/>}>
-            <Route path="/tracker" element={<Tracker />}></Route>
-          </Route>
-          <Route path="/login" element={<LogIn />}></Route>
-          <Route path="/joinafamily" element={<JoinAFamily />}></Route>
-          <Route path="/familyHomePage" element={<FamilyHomePage />}></Route>
-          <Route path="*" element={<ErrorPage />}></Route>
-        </Routes>
-        <Footer></Footer>
-      </div>
-    </Router>
-  );
+    <AuthProvider>
+      <Router>
+        <div>
+          <Header></Header>
+          <Routes>
+            <Route path="/" element={<LogIn />}></Route>
+            <Route path="/registration" element={<Registration />}></Route>
+            <Route path="/tracker" element={ <PrivateRoute><Tracker/></PrivateRoute>}></Route>
+            <Route path="/login" element={<LogIn />}></Route>
+            <Route path="/joinafamily" element={<JoinAFamily />}></Route>
+            <Route path="/family-homepage" element={<FamilyHomePage />}></Route>
+            <Route path="/forgot-password" element={<ForgotPassword />}></Route>
+            <Route path="*" element={<ErrorPage />}></Route>
+          </Routes>
+          <Footer></Footer>
+        </div>
+      </Router>
+    </AuthProvider>
+  );              
 }
 
-export default App;
+export default App; 
