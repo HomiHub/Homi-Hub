@@ -18,13 +18,8 @@ function Header()
     auth.logout();
   };
 
-  function printAuth () {
-    console.log(auth.user);
-  }
-
   return (
     <div className="Header">
-    <button onClick={printAuth}>getAuth</button>
       <Navbar expand="lg">
           <Container>
             <Navbar.Brand href="/" className="Logo">
