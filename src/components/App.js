@@ -13,6 +13,7 @@ import FamilyHomePage from "../familyHomePage/familyHomePage"
 import { AuthProvider } from './auth';
 import { PrivateRoute } from './PrivateRoute';
 import ForgotPassword from './ForgotPassword';
+import TodoList from '../choretracker/TodoList';
 
 //path is url browser path that leads to each page
 //element is the imported page that you want the website to navigate to
@@ -31,6 +32,7 @@ function App() {
             <Route path="/family-homepage" element={<FamilyHomePage />}></Route>
             <Route path="/forgot-password" element={<ForgotPassword />}></Route>
             <Route path="*" element={<ErrorPage />}></Route>
+            <Route path="/choretracker" element={<TodoList />}></Route>
           </Routes>
           <Footer></Footer>
         </div>
