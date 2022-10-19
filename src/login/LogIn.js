@@ -9,6 +9,7 @@ import backPick from "../assets/homi-no-bg.png"
 import Logo from "../assets/homi-icon.png"
 import { useAuth } from "../components/auth";
 import { Alert } from "react-bootstrap";
+import useGeolocation from "../gpsTracker/useGeolocation";
 
 function LogIn() 
 {
@@ -33,6 +34,17 @@ function LogIn()
   const handlePasswordChange=(e)=>{
     setPassword(e.target.value)
   };
+
+
+  // const currentLoc = useGeolocation();
+  // function printCurrentlocation() {
+  //   if (currentLoc.loaded) {
+  //     console.log(JSON.stringify(currentLoc));
+  //   }
+  //   else {
+  //     console.log("did not load");
+  //   }
+  // }
 
   const login = async () => {
     try{

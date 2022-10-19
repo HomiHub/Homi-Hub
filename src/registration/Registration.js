@@ -54,11 +54,19 @@ function Registration() {
   }
 
   const uploadImage = (id) => {
-    if (imageUpload == null) return; // upload a default image in this case..
     const imageRef = sRef(storage, `profilePictures/"${id}`);
-    uploadBytes(imageRef, imageUpload).then(() => {
-      console.log("image uploaded");
-    }) 
+    if (imageUpload == null) {
+      //UPLOAD A DEFAULT IMAGE (INCOMPLETE)
+      // uploadBytes(imageRef, imageUpload).then(() => {
+      //   console.log("default image uploaded");
+      // }) 
+      return;
+    }
+    else {
+      uploadBytes(imageRef, imageUpload).then(() => {
+        console.log("image uploaded");
+      }) 
+    }
   }
 
   //create an account and login automatically
