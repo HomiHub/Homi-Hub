@@ -26,15 +26,13 @@ function ForgotPassword()
 
 
 
-  const login = async () => {
+  const reset = async () => {
     try{
       setMessage("");
       setError("");
       setLoading(true);
-      //authenticate login credentials
       await resetPassword(email);
-      //if the user successfully logged in, they send to the family home page for now
-      //needs to be updated to choose which family they want to view.
+      //if there exists an account for the email provided a reset email is sent
       setMessage("check you email to continue reseting your password");
       setEmail("");
     }
@@ -68,7 +66,7 @@ function ForgotPassword()
         <button disabled={loading} className="registrationButton mt-3" style={{backgroundColor: isMouseOver ? "black": "#369dfc" }} 
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
-                onClick={login}
+                onClick={reset}
         >{submit}</button>
         <div className="mb-1" ><Link to="/"> Log in</Link> </div>
       </div>
