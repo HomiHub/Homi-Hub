@@ -1,20 +1,14 @@
 import React, {useState} from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./login.css"
-import {db} from "../components/firebase";
-import { set, ref } from "firebase/database";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth as fireBaseAuth } from "../components/firebase";
 import backPick from "../assets/homi-no-bg.png"
 import Logo from "../assets/homi-icon.png"
 import { useAuth } from "../components/auth";
 import { Alert } from "react-bootstrap";
-import useGeolocation from "../gpsTracker/useGeolocation";
+import useUploadLocation from "../gpsTracker/uploadLocation";
 
 function LogIn() 
 {
-
-
   let currentLocation = useUploadLocation();
 
 
