@@ -7,6 +7,7 @@ import Footer from "../footer/Footer";
 import LogIn from "../login/LogIn";
 import ErrorPage from "../error/ErrorPage"
 import Mealchooser from '../mealchooser/Mealchosser';
+import Cal from '../cal/Cal';
 
 
 
@@ -21,6 +22,9 @@ function App() {
           <Route path="/registration" element={<Registration />}></Route>
           <Route path="/login" element={<LogIn />}></Route>
           <Route path="/Mealchooser" element={<Mealchooser />}></Route>
+          <Route path="/Calendar" element={<Cal />}></Route>
+
+
 
 
           <Route path="*" element={<ErrorPage />}></Route>
