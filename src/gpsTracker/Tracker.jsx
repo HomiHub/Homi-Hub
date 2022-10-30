@@ -1,44 +1,41 @@
 import React from "react";
-import reactDom from "react-dom/client";
 import { useEffect, useState } from "react";
 import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api';
 import "./styles.css";
 import { Spinner } from "react-bootstrap";
-import homi from "../assets/homi.png"
-import { get, onValue, ref, set } from "firebase/database";
-import { db } from "../components/firebase";
+import useGetLocationsFromDb from "./useGetLocationsFromDb";
+import useGetPpFromDb from "./useGetPpFromDb";
 
-
+//works with one family only for now
 function Tracker() {
+    const[done, setDone] = useState(false);
+    function slowDown() {
+        setInterval(() => setDone(true), 1000);
+    } 
+
+    let userLocations = useGetLocationsFromDb();
+    let profilePictures = useGetPpFromDb();
+
     const {isLoaded} = useLoadScript({googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,});
-    const[myLocation, setLocation] = useState({location: {
-        lat: 110,
-        lng: 1
-    }
-    });
-    const myRef = ref(db, 'testUser');
-
+   
     useEffect(() => {
-
-        onValue(myRef, (snapshot) => {
-            setLocation(snapshot.val());
-        } );
+        slowDown();
     }, []);
 
-    
-    if(!isLoaded) return (
+    if(!isLoaded || userLocations == null || profilePictures == null || !done ) return (
         <div id="spinner-div">
             <Spinner className="spinner-style" animation="border" role="status"></Spinner>
         </div>
         );
-    return (
+    else return (
         <div>
-            <GoogleMap zoom={10} center={{lat: myLocation.location.lat, lng: myLocation.location.lng}} mapContainerClassName="map-container">
-                <MarkerF icon={homi} position={{lat: myLocation.location.lat, lng: myLocation.location.lng}} />
+            <GoogleMap zoom={5.25} center={{lat: 35, lng: -99}} mapContainerClassName="map-container">
+                { Object.keys(userLocations).map((key) => (
+                    <MarkerF key={key} icon={profilePictures.get(key)} position={{lat: userLocations[key].latitude, lng: userLocations[key].longitude}} />
+                 ))}
             </GoogleMap>
         </div>
     );
 }
-
 
 export default Tracker;

@@ -28,7 +28,7 @@ function App() {
             <Route path="/tracker" element={ <PrivateRoute><Tracker/></PrivateRoute>}></Route>
             <Route path="/login" element={<LogIn />}></Route>
             <Route path="/joinafamily" element={<JoinAFamily />}></Route>
-            <Route path="/family-homepage" element={<FamilyHomePage />}></Route>
+            <Route path="/family-homepage" element={<PrivateRoute><FamilyHomePage/></PrivateRoute>}></Route>
             <Route path="/forgot-password" element={<ForgotPassword />}></Route>
             <Route path="*" element={<ErrorPage />}></Route>
           </Routes>

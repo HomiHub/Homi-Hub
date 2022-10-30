@@ -1,10 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth, db } from "../components/firebase";
 import { ref, onValue } from "firebase/database";
+import useUploadLocation from "../gpsTracker/uploadLocation";
+
+
 
 function FamilyHomePage() {
+
+
+  // TODO: run the hook every 10 minutes
+    //currently we only upload user location when they join a family or log in 
+  // useEffect(() => {
+  //   const interval = setInterval(useUploadLocation, 1000);
+  //   return () => clearInterval(interval)
+  // });
+  const currlocation = useUploadLocation();
 
   let navigate = useNavigate();
   //const id = auth.currentUser.uid;

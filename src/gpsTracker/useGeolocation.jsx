@@ -26,7 +26,6 @@ const useGeolocation = () => {
         });
     }
 
-
     useEffect( () => {
         if(!("geolocation" in navigator)) {
             OnError({
@@ -41,5 +40,7 @@ const useGeolocation = () => {
     return location;
 
 };
+
+
 
 export default useGeolocation;

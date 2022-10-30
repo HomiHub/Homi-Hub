@@ -74,6 +74,9 @@ function Registration() {
     if(password !== passwordConfirmation) {
       return setError("Passwords do not match");
     }
+    if(imageUpload == null) {
+      return setError("Please select an image to upload");
+    }
     try{
       setError("");
       setLoading(true)

@@ -13,12 +13,17 @@ import useGeolocation from "../gpsTracker/useGeolocation";
 
 function LogIn() 
 {
+
+
+  let currentLocation = useUploadLocation();
+
+
   const { signin } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  const redirectPath = location.state?.path || '/';
+  const redirectPath = location.state?.path || '/family-homepage';
 
   const[email, setEmail] = useState("");
   const[password, setPassword] = useState("");
@@ -35,16 +40,6 @@ function LogIn()
     setPassword(e.target.value)
   };
 
-
-  // const currentLoc = useGeolocation();
-  // function printCurrentlocation() {
-  //   if (currentLoc.loaded) {
-  //     console.log(JSON.stringify(currentLoc));
-  //   }
-  //   else {
-  //     console.log("did not load");
-  //   }
-  // }
 
   const login = async () => {
     try{

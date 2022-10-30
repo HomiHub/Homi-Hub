@@ -32,7 +32,7 @@ function JoinAFamily() {
   {
     get(familiesRef).then((snapshot) => {
       if (snapshot.exists()) {
-        const data = snapshot.val()
+        const data = snapshot.val();
         for(const [key, value] of Object.entries(data)){
           let value1 = value.familyName;
           famArr.add(value1);
@@ -106,7 +106,7 @@ function JoinAFamily() {
       });
 
       //navigate the user to the family home page after successfully creating a family
-      navigate('/familyHomePage');
+      navigate('/family-homepage');
       
     }
     //catch any errors such as an invalid family name
