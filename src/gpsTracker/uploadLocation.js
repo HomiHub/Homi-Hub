@@ -1,18 +1,19 @@
 import { getAuth } from "firebase/auth";
 import { get, ref, update } from "firebase/database";
 import { useState } from "react";
+import { useAuth } from "../components/auth";
 import { db } from "../components/firebase";
 import useGeolocation from "./useGeolocation";
 
 //Upload location to the first family only for now
 function  useUploadLocation() {
-    const authUser = getAuth().currentUser;
+    const authUser = useAuth().user;
     const currentLocation = useGeolocation().coordinates;
     const [userFamilies, setUserFamilies] = useState();
     let tempFams;
     if(authUser !== null) {
-        console.log("here ", authUser.currentUser);
-        const currentUserUid = authUser.currentUser.uid;
+        console.log("here ", authUser.uid);
+        const currentUserUid = authUser.uid;
         const userRef = ref(db, `users/${currentUserUid}`);
         get(userRef).then((snapshot) => {
             tempFams = snapshot.val();
