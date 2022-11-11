@@ -9,9 +9,6 @@ import useUploadLocation from "../gpsTracker/uploadLocation";
 
 function LogIn() 
 {
-  let currentLocation = useUploadLocation();
-
-
   const { signin } = useAuth();
 
   const navigate = useNavigate();

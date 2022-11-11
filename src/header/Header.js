@@ -37,7 +37,7 @@ function Header()
                 <Nav className="ms-auto">
                   <Nav.Link href="/">Home</Nav.Link>
                   <Nav.Link href="/tracker">GPS</Nav.Link>
-                  <Nav.Link href="#link">Link</Nav.Link>
+                  <Nav.Link href="/chat-room">Chat Room</Nav.Link>
                   {!auth.user && (<Nav.Link href="/login">Log in</Nav.Link>)}
                   {auth.user && (<Nav.Link onClick={logout} href="/login">Log out</Nav.Link>)}
                 </Nav>

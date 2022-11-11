@@ -138,7 +138,7 @@ function Registration() {
         <input className="registrationInput" type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
         <input className="registrationInput" type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
         <input className="registrationInput" type="password" placeholder="Re-Type Password" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} />
-        <input className="registrationInput" type="file" onChange={handleImageChange}/>
+        <input className="registrationInput" type="file" onChange={handleImageChange} accept="image/*"/>
         <button disabled={loading} className="registrationButton" style={{backgroundColor: isMouseOver ? "black": "#369dfc" }} 
                 onClick={register}
                 onMouseOver={handleMouseOver}
