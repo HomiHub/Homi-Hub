@@ -4,11 +4,10 @@ import { signOut } from "firebase/auth";
 import { auth, db } from "../components/firebase";
 import { ref, onValue } from "firebase/database";
 import useUploadLocation from "../gpsTracker/uploadLocation";
-
-
+import GroceryList from "../groceryList/GroceryList";
+import { Button } from "react-bootstrap";
 
 function FamilyHomePage() {
-
 
   // TODO: run the hook every 10 minutes
     //currently we only upload user location when they join a family or log in 
@@ -44,20 +43,21 @@ function FamilyHomePage() {
     document.getElementById("theh1").innerHTML = familyIDs;
   };
 
-//this is a bad implementation, the page crashes when reloading
-//onLoad={printH1()}
+  function ComponentRender(){
+    if(familyIDs != null){
+      return <GroceryList></GroceryList>;
+    }
+    else{
+      return <h1>Error loading your page</h1>;
+    }
+  }
+
   return (
     <div>
         <h1>Welcome to your family page</h1>
-        <div >
-          <h1 id="theh1"></h1>
-        </div>
-        {fbVals.map((query) => (
-          <>
-            <p>{query.key}</p>
-            <button>Testing</button>
-          </>
-        ))}
+        <Button>Home</Button>
+        <Button>Grocery List</Button>
+        <ComponentRender></ComponentRender>
     </div>
   );
 }
