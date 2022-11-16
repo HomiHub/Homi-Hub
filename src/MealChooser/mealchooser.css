@@ -1,0 +1,97 @@
+ /* can import fonts */ 
+
+/*body{
+    background-color: aqua;
+    color: black;
+}
+
+h2{
+    color: black;
+    display: inline-block;
+    font-size: 2rem;
+}
+
+.btn{
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px rgb(0,0,0,0.15);
+    color: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 20px 35px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+
+.container{
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 800px;
+}*/
+
+.meal{
+    background-color: azure;
+    box-shadow: 0 10px 10px rgb(0,0,0,0.15);
+    border-radius: 5px;
+    display: flex;
+}
+
+.meal-img{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    overflow: hidden;
+    flex: 1;
+}
+
+.meal-img img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.meal-details{
+    padding: 30px;
+    position: relative;
+    flex: 2;
+}
+
+.meal-title{
+    color: crimson;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin:  0 0 20px;
+}
+
+.meal-instructions{
+    font-size: 14px;
+}
+
+.meal-info{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+.meal-info li {
+    color: #555;
+    font-size: 14px;
+    font-weight: 300; /* can change this*/
+    margin-right: 30px;
+}
+
+.meal-info li strong{
+    color: crimson;
+    font-size: 18px;
+    display: block;
+}
+
+.meal-details .btn{
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+
+}

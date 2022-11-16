@@ -9,7 +9,7 @@
     text-align: center;
 }
 
-table {
+.groceryListMid table {
     border: 3px solid white;
     width: 820px;
     height: 200px;
