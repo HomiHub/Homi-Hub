@@ -29,7 +29,7 @@ function Header() {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/login">Login</Nav.Link>
               <Nav.Link href="/Mealchooser">Mealchooser</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
+              <Nav.Link href="/Calendar">Calendar</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
