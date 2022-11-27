@@ -35,9 +35,9 @@ function Header()
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ms-auto">
-                  <Nav.Link href="/">Home</Nav.Link>
-                  <Nav.Link href="/tracker">GPS</Nav.Link>
-                  <Nav.Link href="/chat-room">Chat Room</Nav.Link>
+                  {!auth.user && (<Nav.Link href="/">Home</Nav.Link>)}
+                  {auth.user && (<Nav.Link href="/family-homepage">Family Page</Nav.Link>)}
+                  <Nav.Link href="/CustomerSupport">Customer Support</Nav.Link>
                   {!auth.user && (<Nav.Link href="/login">Log in</Nav.Link>)}
                   {auth.user && (<Nav.Link onClick={logout} href="/login">Log out</Nav.Link>)}
                 </Nav>

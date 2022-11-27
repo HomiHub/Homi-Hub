@@ -15,23 +15,10 @@
     font-size: 1.5rem;
     font-family: "Montserrat";
     font-weight: 300;
-    padding-left: 20px;
+    margin-right: 10px;
 }
 
 .Header{
     background-color: #4BD8F6;
-    padding: 0;
     height: 120px;
-}
-
-.LogoText{
-
-}
-
-.HeaderLinks{
-
-}
-
-.Logo{
-
 }

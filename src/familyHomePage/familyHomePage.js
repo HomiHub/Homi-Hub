@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
-import { signOut } from "firebase/auth";
+import { signOut, User } from "firebase/auth";
 import { auth, db } from "../components/firebase";
 import useUploadLocation from "../gpsTracker/uploadLocation";
 import GroceryList from "../groceryList/GroceryList";
@@ -16,7 +16,6 @@ import { set, ref, child, update, remove, push, get, onValue } from "firebase/da
 
 function FamilyHomePage() {
 
-  console.log("Starting over");
   // TODO: run the hook every 10 minutes
     //currently we only upload user location when they join a family or log in 
   // useEffect(() => {
@@ -28,39 +27,97 @@ function FamilyHomePage() {
   //const currlocation = useUploadLocation();
 
   let navigate = useNavigate();
-  //const id = auth.currentUser.uid;
   const [fbVals, setFBVals] = useState([]);
-  const [keys, setKeys] = useState("");
-  const [familyIDs, setFamilyIDs] = useState("default");
   const [pageNum, setPageNum] = useState(0);
-  //const [familyName, setFamilyName] = useState("Default");
+  const id = auth.currentUser.uid;
+  console.log("the user id");
+  console.log(id);
+  const [familyName, setFamilyName] = useState("Default");
+  const [familyID, setFamilyID] = useState("Default");
 
-  //database query, work in progress
-  let famArr = new Set();
-  let family = "default";
-  const familiesRef = ref(db, 'families');
-  console.log("before get");
-  get(familiesRef).then((snapshot) => {
-    console.log("In get");
+  //get the familyID of the logged in user
+  //query location
+  const userFamilyRef = ref(db, `/users/${id}/families`);
+  get(userFamilyRef).then((snapshot) => {
     if (snapshot.exists()) {
+      //all the data from the query
       const data = snapshot.val();
-    
+      console.log(data);
+      //currently assuming the user belongs to one family and we grab the single value here
       for(const [key, value] of Object.entries(data)){
-        let value1 = value.familyName;
-        famArr.add(value1);
+        let value1 = key;
+        setFamilyID(value1);
       }
-      
-      const myIterator = famArr.entries();
-      for (const entry of myIterator) {
-        //console.log(entry[0]);
-        family = entry[0];
-        console.log("ran 1");
-        console.log(family);
-      }
-      //setFamilyIDs(famArr)
-      console.log(famArr);
+      console.log("family ID found");
+      console.log(familyID);
     }}
   );
+
+  //get the family name 
+  const familyRef = ref(db, `/families/${familyID}`);
+  get(familyRef).then((snapshot) => {
+    if (snapshot.exists()) {
+      console.log("family name found");
+      console.log(snapshot.val().familyName);
+      setFamilyName(snapshot.val().familyName);
+    }}
+  );
+
+
+
+  // //get the list of family keys and family names from the database
+  // let famArr = new Set();
+  // let famKey = new Set();
+  // let family = "default";
+  // const familiesRef = ref(db, 'families');
+  // get(familiesRef).then((snapshot) => {
+  //   if (snapshot.exists()) {
+  //     const data = snapshot.val();
+  //     console.log(data);
+  //     for(const [key, value] of Object.entries(data)){
+  //       let value1 = key;
+  //       console.log("key found");
+  //       console.log(value1);
+  //       famKey.add(value1);
+  //     }
+  //     for(const [key, value] of Object.entries(data)){
+  //       let value1 = value.familyName;
+  //       famArr.add(value1);
+  //     }
+      
+  //     const myIterator = famKey.entries();
+  //     let counter = 0;
+  //     let index = 0;
+  //     for (const entry of myIterator) {
+  //       //console.log(entry[0]);
+  //       if(entry[0] === familyID){
+  //         console.log("found family");
+  //         console.log(entry[0]);
+  //         index = counter;
+  //       }
+  //       else{
+  //         console.log("family not found");
+  //         console.log(entry[0]);
+  //       }
+  //       counter++;
+  //       //setFamilyName(family);  causes continuous reloading
+  //     }
+  //     //setFamilyIDs(famArr)  causes continuous reloading
+  //     counter = 0;
+  //     const myIterator2 = famArr.entries();
+  //     for (const entry of myIterator2) {
+  //       if(counter === index){
+  //         console.log("found indexx");
+  //         console.log(entry[0]);
+  //         setFamilyName(entry[0]);
+  //       }
+  //       else{
+  //         console.log("wrong index");
+  //       }
+  //       counter++;
+  //     }
+  //   }}
+  // );
 
   const logout = async () => {
     await signOut(auth);
@@ -139,7 +196,7 @@ function FamilyHomePage() {
 
   return (
     <div className="familyPage">
-        <h1>Welcome to your family page</h1>
+        <h1>{familyName} Family</h1>
         <Button type="button" className="familyPageButton" onClick={ChatClick}>Chat</Button>
         <Button type="button" className="familyPageButton" onClick={ChoreClick}>Chore Tracker</Button>
         <Button type="button" className="familyPageButton" onClick={ErrandClick}>Errand Tracker</Button>

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import "./groceryList.css"
-import {db} from "../components/firebase";
+import {db, auth} from "../components/firebase";
 import { getDatabase, ref, get, child, push, update} from "firebase/database";
 
 function GroceryList() 
@@ -13,6 +13,7 @@ function GroceryList()
         { groceryId: "Eggs"},
         { groceryId: "Garlic"}
       ]
+    console.log(data);
 
     var[newItem, setNewItem] = useState("");
 
@@ -37,19 +38,60 @@ function GroceryList()
         }
     };
 
+    const id = auth.currentUser.uid;
+    console.log("the user id");
+    console.log(id);
+    const [familyID, setFamilyID] = useState("Default");
+  
+    //get the familyID of the logged in user
+    //query location
+    const userFamilyRef = ref(db, `/users/${id}/families`);
+    get(userFamilyRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        //all the data from the query
+        const dataFamily = snapshot.val();
+        console.log(dataFamily);
+        //currently assuming the user belongs to one family and we grab the single value here
+        for(const [key, value] of Object.entries(dataFamily)){
+          let value1 = key;
+          setFamilyID(value1);
+        }
+        console.log("family ID found");
+        console.log(familyID);
+      }}
+    );
+
     //get the grocery list from the database
-    const dbRef = ref(getDatabase());
-    get(child(dbRef, `families/-NDfcsZTM4BWrJoA9eRd/groceryList`)).then((snapshot) => {
+    const [groceryItems, setGroceryItems] = useState();
+    let queryData = [];
+    let famArr = new Set();
+
+    const groceryRef = ref(db, `families/${familyID}/groceryList`);
+    get(groceryRef).then((snapshot) => {
     if (snapshot.exists()) {
-        console.log(snapshot.val());
-        data = snapshot.val();
-        console.log(data);
-    } else {
+        const groceryData = snapshot.val();
+        console.log(groceryData);
+        let counter = 0;
+        for(const [key, value] of Object.entries(groceryData)){
+            let value1 = value;
+            console.log("grocery item found");
+            console.log(value1);
+            famArr.add(value1);
+            //setGroceryItems(value1);
+            // queryData[counter] = {groceryID: value1};
+            // counter++;            //( {groceryId: {value1}} ); 
+        }
+        //setGroceryItems(famArr);
+        console.log(famArr);
+    } 
+    else {
         console.log("No data available");
     }
     }).catch((error) => {
     console.error(error);
     });
+
+    
     
     //displayed on the page
     return (
@@ -58,10 +100,10 @@ function GroceryList()
                 <tr>
                     <th className="tableHeader">Grocery List</th>
                 </tr>
-                {data.map((val, key) => {
+                {data.map((value, key) => {
                     return (
                     <tr key={key}>
-                        <td>{val.groceryId}</td>
+                        <td>{value.groceryId}</td>
                     </tr>
                     )
                 })}

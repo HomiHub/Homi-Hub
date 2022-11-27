@@ -5,7 +5,7 @@ function Footer()
 {
   return (
     <div className="footer">
-      <h1>Contact Us</h1>
+      <h1>© 2022 HOMI</h1>
     </div>
   );
 }

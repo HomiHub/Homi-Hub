@@ -1,6 +1,6 @@
 .footer {
     text-align: center;
-    color: black;
+    color: white;
     height: 50px;
     width: 100%;
     position: fixed;
@@ -9,7 +9,7 @@
     background-color: #4BD8F6;
 }
 
-.footer h1{
+.footer a{
     padding-top: 10px;
     font-size: 1.5em;
 }
