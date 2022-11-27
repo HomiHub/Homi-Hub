@@ -15,6 +15,7 @@ import { PrivateRoute } from './PrivateRoute';
 import ForgotPassword from './ForgotPassword';
 import ChatRoom from '../chatRoom/ChatRoom';
 import SyncedGallery from '../syncedGallery/SyncedGallery';
+import TodoList from '../wishList/TodoList';
 
 //path is url browser path that leads to each page
 //element is the imported page that you want the website to navigate to
@@ -35,6 +36,7 @@ function App() {
             <Route path="/chat-room" element={<PrivateRoute><ChatRoom/></PrivateRoute>}></Route>
             <Route path="*" element={<ErrorPage />}></Route>
             <Route path="/syncedgallery" element={<SyncedGallery />}></Route>
+            <Route path="/wishlist" element={<TodoList />}></Route>
           </Routes>
           <Footer></Footer>
         </div>
