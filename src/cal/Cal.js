@@ -28,18 +28,18 @@ const events = [
     {
         title: "Family Meeting",
         allDay: true,
-        start: new Date(2022, 11, 6),
-        end: new Date(2022, 11, 10),
+        start: new Date(2022, 12, 3),
+        end: new Date(2022, 12, 3),
     },
     {
-        title: "Adam's Rehearsal",
-        start: new Date(2022, 11, 1),
-        end: new Date(2022, 11, 3),
+        title: "Final Class Date",
+        start: new Date(2022, 12, 9),
+        end: new Date(2022, 12, 9),
     },
     {
-        title: "Parent Teacher Meeting",
-        start: new Date(2022, 10, 25),
-        end: new Date(2022, 10, 26),
+        title: "Final?",
+        start: new Date(2022, 12, 13),
+        end: new Date(2022, 12, 13),
     },
 ];
 
