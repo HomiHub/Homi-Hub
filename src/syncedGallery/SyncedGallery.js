@@ -11,7 +11,6 @@ function SyncedGallery() {
             <Title/>
             <UploadForm />
             <ImageGrid />
-            {/* <Modal /> */}
         </div>
     );
 }
