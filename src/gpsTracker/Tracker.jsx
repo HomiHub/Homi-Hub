@@ -5,6 +5,7 @@ import "./styles.css";
 import { Spinner } from "react-bootstrap";
 import useGetLocationsFromDb from "./useGetLocationsFromDb";
 import useGetPpFromDb from "./useGetPpFromDb";
+import useUploadLocation from "../gpsTracker/uploadLocation";
 
 //works with one family only for now
 function Tracker() {
@@ -13,6 +14,7 @@ function Tracker() {
         setInterval(() => setDone(true), 1000);
     } 
 
+    useUploadLocation();
     let userLocations = useGetLocationsFromDb();
     let profilePictures = useGetPpFromDb();
 
