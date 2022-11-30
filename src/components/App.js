@@ -1,6 +1,6 @@
 //this handles all the page routing using react-router-dom
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, HashRouter} from 'react-router-dom';
 import Registration from "../registration/Registration";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
