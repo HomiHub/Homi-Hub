@@ -12,7 +12,7 @@ import ChoreTracker from '../choretracker/TodoList';
 import ErrandTracker from '../errandTracker/ErrandTracker';
 import MealChooser from '../MealChooser/Mealchosser';
 import { set, ref, child, update, remove, push, get, onValue } from "firebase/database";
-//import SyncedGallery from '../syncedGallery/SyncedGallery'
+import SyncedGallery from '../syncedGallery/SyncedGallery'
 
 function FamilyHomePage() {
 
@@ -182,7 +182,7 @@ function FamilyHomePage() {
       return; //<SyncedCalendar></SyncedCalendar>; 
     }
     else if(pageNum === 7){
-      return; //<SyncedGallery></SyncedGallery>; 
+      return <SyncedGallery></SyncedGallery>; 
     }
     else if(pageNum === 8){
       return; //<EmergencyContacts></EmergencyContacts>; 
