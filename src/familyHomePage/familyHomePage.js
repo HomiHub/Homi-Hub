@@ -10,7 +10,7 @@ import GPSTracker from "../gpsTracker/Tracker";
 import ChatRoom from '../chatRoom/ChatRoom';
 import ChoreTracker from '../choretracker/TodoList';
 import ErrandTracker from '../errandTracker/ErrandTracker';
-import MealChooser from '../MealChooser/Mealchosser';
+import MealChooser from '../mealchooser/Mealchooser';
 import { set, ref, child, update, remove, push, get, onValue } from "firebase/database";
 import SyncedGallery from '../syncedGallery/SyncedGallery'
 
