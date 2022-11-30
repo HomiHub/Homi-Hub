@@ -5,6 +5,7 @@ import backPick from "../assets/homi-no-bg.png"
 import Logo from "../assets/homi-icon.png"
 import { useAuth } from "../components/auth";
 import { Alert } from "react-bootstrap";
+import useUploadLocation from "../gpsTracker/uploadLocation";
 
 function LogIn() 
 {
