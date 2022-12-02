@@ -23,7 +23,7 @@ function App() {
         <div>
           <Header></Header>
           <Routes>
-            <Route path="http://HomiHub.github.io/Homi-Hub/" element={<LogIn />}></Route>
+            <Route path="/" element={<LogIn />}></Route>
             <Route path="/registration" element={<Registration />}></Route>
             <Route path="/tracker" element={ <PrivateRoute><Tracker/></PrivateRoute>}></Route>
             <Route path="/login" element={<LogIn />}></Route>
