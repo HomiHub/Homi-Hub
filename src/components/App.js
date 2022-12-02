@@ -1,6 +1,6 @@
 //this handles all the page routing using react-router-dom
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Routes, Route, HashRouter, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, HashRouter} from 'react-router-dom';
 import Registration from "../registration/Registration";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
@@ -22,7 +22,7 @@ function App() {
       <HashRouter>
         <div>
           <Header></Header>
-          <Switch>
+          <Routes>
             <Route path="/" element={<LogIn />}></Route>
             <Route path="/registration" element={<Registration />}></Route>
             <Route path="/tracker" element={ <PrivateRoute><Tracker/></PrivateRoute>}></Route>
@@ -32,7 +32,7 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPassword />}></Route>
             <Route path="/chat-room" element={<PrivateRoute><ChatRoom/></PrivateRoute>}></Route>
             <Route path="*" element={<ErrorPage />}></Route>
-          </Switch>
+          </Routes>
           <Footer></Footer>
         </div>
       </HashRouter>
