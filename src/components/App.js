@@ -19,23 +19,23 @@ import ChatRoom from '../chatRoom/ChatRoom';
 function App() {
   return (
     <AuthProvider>
-      <HashRouter>
+      <Router>
         <div>
           <Header></Header>
           <Routes>
-            <Route path="/" element={<LogIn />}></Route>
-            <Route path="/registration" element={<Registration />}></Route>
-            <Route path="/tracker" element={ <PrivateRoute><Tracker/></PrivateRoute>}></Route>
-            <Route path="/login" element={<LogIn />}></Route>
-            <Route path="/joinafamily" element={<JoinAFamily />}></Route>
-            <Route path="/family-homepage" element={<PrivateRoute><FamilyHomePage/></PrivateRoute>}></Route>
-            <Route path="/forgot-password" element={<ForgotPassword />}></Route>
-            <Route path="/chat-room" element={<PrivateRoute><ChatRoom/></PrivateRoute>}></Route>
+            <Route path="/Homi-Hub/" element={<LogIn />}></Route>
+            <Route path="/Homi-Hub/registration" element={<Registration />}></Route>
+            <Route path="/Homi-Hub/tracker" element={ <PrivateRoute><Tracker/></PrivateRoute>}></Route>
+            <Route path="/Homi-Hub/login" element={<LogIn />}></Route>
+            <Route path="/Homi-Hub/joinafamily" element={<JoinAFamily />}></Route>
+            <Route path="/Homi-Hub/family-homepage" element={<PrivateRoute><FamilyHomePage/></PrivateRoute>}></Route>
+            <Route path="/Homi-Hub/forgot-password" element={<ForgotPassword />}></Route>
+            <Route path="/Homi-Hub/chat-room" element={<PrivateRoute><ChatRoom/></PrivateRoute>}></Route>
             <Route path="*" element={<ErrorPage />}></Route>
           </Routes>
           <Footer></Footer>
         </div>
-      </HashRouter>
+      </Router>
     </AuthProvider>
   );              
 }

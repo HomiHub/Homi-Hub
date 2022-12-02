@@ -35,11 +35,11 @@ function Header()
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ms-auto">
-                  {!auth.user && (<Nav.Link href="/">Home</Nav.Link>)}
-                  {auth.user && (<Nav.Link href="/family-homepage">Family Page</Nav.Link>)}
-                  <Nav.Link href="/CustomerSupport">Customer Support</Nav.Link>
-                  {!auth.user && (<Nav.Link href="/login">Log in</Nav.Link>)}
-                  {auth.user && (<Nav.Link onClick={logout} href="/login">Log out</Nav.Link>)}
+                  {!auth.user && (<Nav.Link href="/Homi-Hub/">Home</Nav.Link>)}
+                  {auth.user && (<Nav.Link href="/Homi-Hub/family-homepage">Family Page</Nav.Link>)}
+                  <Nav.Link href="/Homi-Hub/CustomerSupport">Customer Support</Nav.Link>
+                  {!auth.user && (<Nav.Link href="/Homi-Hub/login">Log in</Nav.Link>)}
+                  {auth.user && (<Nav.Link onClick={logout} href="/Homi-Hub/login">Log out</Nav.Link>)}
                 </Nav>
               </Navbar.Collapse>
           </Container>
