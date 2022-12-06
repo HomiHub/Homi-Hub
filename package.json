@@ -1,5 +1,6 @@
 {
   "name": "homi-hub",
+  "homepage": "https://homi.quest",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
