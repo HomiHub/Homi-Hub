@@ -79,7 +79,7 @@ function LogIn()
         <div className="mb-1" ><Link to="/forgot-password"> Forgot Password?</Link> </div>
         <p>
           No account?&nbsp;
-          <a href="./registration">Sign Up</a>
+          <Link to="./registration">Sign Up</Link>
         </p>
       </div>
     </div>
