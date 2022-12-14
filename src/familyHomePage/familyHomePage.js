@@ -159,6 +159,10 @@ function FamilyHomePage() {
     setPageNum(8);
   }
 
+  const WishListClick = async () => {
+    setPageNum(9);
+  }
+
   function ComponentRender(){
     if(pageNum === 0){
       return <ChatRoom></ChatRoom>;
@@ -187,6 +191,9 @@ function FamilyHomePage() {
     else if(pageNum === 8){
       return; //<EmergencyContacts></EmergencyContacts>; 
     }
+    else if(pageNum === 9){
+      return; //<WishLish></WishList>; 
+    }
     else{
       return <h1>Error loading your page</h1>;
     }
@@ -206,6 +213,7 @@ function FamilyHomePage() {
         <Button type="button" className="familyPageButton" onClick={CalendarClick}>Calendar</Button>
         <Button type="button" className="familyPageButton" onClick={GalleryClick}>Gallery</Button>
         <Button type="button" className="familyPageButton" onClick={ContactsClick}>Emergency Contacts</Button>
+        <Button type="button" className="familyPageButton" onClick={WishListClick}>Wish List</Button>
         <ComponentRender></ComponentRender>
         
     </div>

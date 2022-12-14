@@ -7,6 +7,7 @@ import Logo from "../assets/homi-icon.png"
 import { useAuth } from "../components/auth";
 import { signOut } from "firebase/auth";
 import { auth as fireBaseAuth } from "../components/firebase";
+import { Link} from "react-router-dom";
 
 //react bootstrap navbar
 function Header() 
@@ -35,11 +36,11 @@ function Header()
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ms-auto">
-                  {!auth.user && (<Nav.Link href="/">Home</Nav.Link>)}
-                  {auth.user && (<Nav.Link href="/family-homepage">Family Page</Nav.Link>)}
-                  <Nav.Link href="/CustomerSupport">Customer Support</Nav.Link>
-                  {!auth.user && (<Nav.Link href="/login">Log in</Nav.Link>)}
-                  {auth.user && (<Nav.Link onClick={logout} href="/login">Log out</Nav.Link>)}
+                  {!auth.user && (<Link to="/" style={{ textDecoration: 'none', margin: '12px', color: 'rgba(0,0,0,.55)' }}>Home</Link>)}
+                  {auth.user && (<Link to="/family-homepage" style={{ textDecoration: 'none', margin: '12px', color: 'rgba(0,0,0,.55)' }}>Family Page</Link>)}
+                  <Link to="/CustomerSupport" style={{ textDecoration: 'none', margin: '12px', color: 'rgba(0,0,0,.55)' }}>Customer Support</Link>
+                  {!auth.user && (<Link to="/login" style={{ textDecoration: 'none', margin: '12px', color: 'rgba(0,0,0,.55)' }}>Log in</Link>)}
+                  {auth.user && (<Link onClick={logout} to="/login" style={{ textDecoration: 'none', margin: '12px', color: 'rgba(0,0,0,.55)' }}>Log out</Link>)}
                 </Nav>
               </Navbar.Collapse>
           </Container>
