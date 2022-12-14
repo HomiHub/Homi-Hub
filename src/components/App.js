@@ -19,7 +19,7 @@ import ChatRoom from '../chatRoom/ChatRoom';
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      <HashRouter>
         <div>
           <Header></Header>
           <Routes>
@@ -35,7 +35,7 @@ function App() {
           </Routes>
           <Footer></Footer>
         </div>
-      </Router>
+      </HashRouter>
     </AuthProvider>
   );              
 }
