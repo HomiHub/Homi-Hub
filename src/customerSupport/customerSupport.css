@@ -1,0 +1,22 @@
+/*
+style for each component in the customer support
+to use just set the className of the component to whatever class name in the file
+*/
+.customersupport {
+    background-color: rgba(252, 252, 252, 0.2);
+    width: 475px;
+    padding-bottom: 40px;
+    text-align: center;
+    height: 450px
+}
+
+.centered {
+    margin-top: 1%; /* Magic here */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centeredText{
+    text-align: center;
+}

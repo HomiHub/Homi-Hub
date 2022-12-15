@@ -13,6 +13,7 @@ import { AuthProvider } from './auth';
 import { PrivateRoute } from './PrivateRoute';
 import ForgotPassword from './ForgotPassword';
 import ChatRoom from '../chatRoom/ChatRoom';
+import CustomerSupport from '../customerSupport/CustomerSupport';
 
 //path is url browser path that leads to each page
 //element is the imported page that you want the website to navigate to
@@ -31,6 +32,7 @@ function App() {
             <Route path="/family-homepage" element={<PrivateRoute><FamilyHomePage/></PrivateRoute>}></Route>
             <Route path="/forgot-password" element={<ForgotPassword />}></Route>
             <Route path="/chat-room" element={<PrivateRoute><ChatRoom/></PrivateRoute>}></Route>
+            <Route path="/customer-support" element={<PrivateRoute><CustomerSupport/></PrivateRoute>}></Route>
             <Route path="*" element={<ErrorPage />}></Route>
           </Routes>
           <Footer></Footer>
