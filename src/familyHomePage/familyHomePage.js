@@ -14,6 +14,9 @@ import EmergencyContacts from "../emergencyContact/EmergencyContacts";
 import MealChooser from '../MealChooser/Mealchooser';
 import { set, ref, child, update, remove, push, get, onValue } from "firebase/database";
 import SyncedGallery from '../syncedGallery/SyncedGallery'
+import {default as SyncedCalendar} from '../cal/Cal'
+import {default as WishList} from '../wishList/TodoList'
+
 
 function FamilyHomePage() {
 
@@ -184,7 +187,7 @@ function FamilyHomePage() {
       return <GPSTracker></GPSTracker>;
     }
     else if(pageNum === 6){
-      return; //<SyncedCalendar></SyncedCalendar>; 
+      return <SyncedCalendar></SyncedCalendar>; 
     }
     else if(pageNum === 7){
       return <SyncedGallery></SyncedGallery>; 
@@ -193,7 +196,7 @@ function FamilyHomePage() {
       return <EmergencyContacts></EmergencyContacts>; 
     }
     else if(pageNum === 9){
-      return; //<WishLish></WishList>; 
+      return<WishList></WishList>; 
     }
     else{
       return <h1>Error loading your page</h1>;
