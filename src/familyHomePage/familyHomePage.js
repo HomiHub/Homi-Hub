@@ -10,6 +10,7 @@ import GPSTracker from "../gpsTracker/Tracker";
 import ChatRoom from '../chatRoom/ChatRoom';
 import ChoreTracker from '../choretracker/TodoList';
 import ErrandTracker from '../errandTracker/ErrandTracker';
+import EmergencyContacts from "../emergencyContact/EmergencyContacts";
 import MealChooser from '../MealChooser/Mealchooser';
 import { set, ref, child, update, remove, push, get, onValue } from "firebase/database";
 import SyncedGallery from '../syncedGallery/SyncedGallery'
@@ -189,7 +190,7 @@ function FamilyHomePage() {
       return <SyncedGallery></SyncedGallery>; 
     }
     else if(pageNum === 8){
-      return; //<EmergencyContacts></EmergencyContacts>; 
+      return <EmergencyContacts></EmergencyContacts>; 
     }
     else if(pageNum === 9){
       return; //<WishLish></WishList>; 

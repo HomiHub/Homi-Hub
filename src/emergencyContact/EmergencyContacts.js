@@ -1,18 +1,17 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import "./errandTracker.css"
+import "./emergencyContacts.css"
 import {db, auth} from "../components/firebase";
 import { getDatabase, ref, get, child, push, update} from "firebase/database";
 
-function ErrandTracker() 
+function EmergencyContacts() 
 {
     //test data
     var data = [
-        { errandID: "Take out the trash" },
-        { errandID: "Do the laundry"},
-        { errandID: "Walk the dog"},
-        { errandID: "Feed the dog"}
-      ]
+        {eID: "Adam: 123-456-7890"},
+        {eID: "Jean: 098-765-4321"},
+        {eID: "Ashur: 574-234-2534"},
+    ]
     console.log(data);
 
     var[newItem, setNewItem] = useState("");
@@ -22,13 +21,13 @@ function ErrandTracker()
       };
 
     //add a new errand
-    const addErrand = async () => {
+    const addContact = async () => {
         try{
           //get a unique key for the item
-          var itemRef = push(ref(db, `families/-NDfcsZTM4BWrJoA9eRd/errandTracker`),{
+          var itemRef = push(ref(db, `families/-NDfcsZTM4BWrJoA9eRd/emergencyContacts`),{
           })
           //add the item to the unique key
-          update(ref(db, `families/-NDfcsZTM4BWrJoA9eRd/errandTracker`),{
+          update(ref(db, `families/-NDfcsZTM4BWrJoA9eRd/emergencyContacts`),{
             [itemRef.key]: newItem
           })
           setNewItem("");
@@ -59,17 +58,17 @@ function ErrandTracker()
       }}
     );
 
-    const [errand, setErrand] = useState();
+    const [contact, setContact] = useState();
     let queryData = [];
     let famArr = new Set();
 
-    const errandRef = ref(db, `families/${familyID}/errandTracker`);
-    get(errandRef).then((snapshot) => {
+    const contactRef = ref(db, `families/${familyID}/emergencyContacts`);
+    get(contactRef).then((snapshot) => {
     if (snapshot.exists()) {
-        const errandData = snapshot.val();
-        console.log(errandData);
+        const contactData = snapshot.val();
+        console.log(contactData);
         let counter = 0;
-        for(const [key, value] of Object.entries(errandData)){
+        for(const [key, value] of Object.entries(contactData)){
             let value1 = value;
             console.log(value1);
             famArr.add(value1);
@@ -85,25 +84,25 @@ function ErrandTracker()
 
     
     return (
-        <div className="errandTracker">
+        <div className="emergencyContacts">
             <table>
                 <tr>
-                    <th className="tableHeader">Errand Tracker</th>
+                    <th className="tableHeader">Emergency Contacts</th>
                 </tr>
                 {data.map((value, key) => {
                     return (
                     <tr key={key}>
-                        <td>{value.errandID}</td>
+                        <td>{value.eID}</td>
                     </tr>
                     )
                 })}
             </table>
-            <div className="errandInput">
+            <div className="emergencyContactsInput">
                 <input type="text" placeholder="New Item" value={newItem} onChange={handleNewItemChange} />
-                <button onClick={addErrand}>Add</button>
+                <button onClick={addContact}>Add</button>
             </div>
         </div>
     );
 }
 
-export default ErrandTracker
+export default EmergencyContacts
