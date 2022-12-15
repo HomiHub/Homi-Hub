@@ -39,8 +39,8 @@ function Header()
                   {!auth.user && (<Link to="/" style={{ textDecoration: 'none', margin: '12px', color: 'rgba(0,0,0,.55)' }}>Home</Link>)}
                   {auth.user && (<Link to="/family-homepage" style={{ textDecoration: 'none', margin: '12px', color: 'rgba(0,0,0,.55)' }}>Family Page</Link>)}
                   <Link to="/customer-support" style={{ textDecoration: 'none', margin: '12px', color: 'rgba(0,0,0,.55)' }}>Customer Support</Link>
-                  {!auth.user && (<Link to="/login" style={{ textDecoration: 'none', margin: '12px', color: 'rgba(0,0,0,.55)' }}>Log in</Link>)}
-                  {auth.user && (<Link onClick={logout} to="/login" style={{ textDecoration: 'none', margin: '12px', color: 'rgba(0,0,0,.55)' }}>Log out</Link>)}
+                  {!auth.user && (<Link to="/" style={{ textDecoration: 'none', margin: '12px', color: 'rgba(0,0,0,.55)' }}>Log in</Link>)}
+                  {auth.user && (<Link onClick={logout} to="/" style={{ textDecoration: 'none', margin: '12px', color: 'rgba(0,0,0,.55)' }}>Log out</Link>)}
                 </Nav>
               </Navbar.Collapse>
           </Container>
