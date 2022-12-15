@@ -18,7 +18,7 @@ function GroceryList()
     var[newItem, setNewItem] = useState("");
 
     const handleNewItemChange=(e)=>{
-        setNewItem(e.target.value)
+        setNewItem(e.target.value);
       };
 
     //add a new grocery item to the database
@@ -62,45 +62,47 @@ function GroceryList()
     );
 
     //get the grocery list from the database
-    const [groceryItems, setGroceryItems] = useState();
+    const [groceryItems, setGroceryItems] = useState(data);
+    const [loading, setLoading] = useState(0);
     let queryData = [];
     let famArr = new Set();
 
     const groceryRef = ref(db, `families/${familyID}/groceryList`);
-    get(groceryRef).then((snapshot) => {
-    if (snapshot.exists()) {
-        const groceryData = snapshot.val();
-        console.log(groceryData);
-        let counter = 0;
-        for(const [key, value] of Object.entries(groceryData)){
-            let value1 = value;
-            console.log("grocery item found");
-            console.log(value1);
-            famArr.add(value1);
-            //setGroceryItems(value1);
-            // queryData[counter] = {groceryID: value1};
-            // counter++;            //( {groceryId: {value1}} ); 
+    if(loading < 2){
+      get(groceryRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            const groceryData = snapshot.val();
+            console.log(groceryData);
+            let counter = 0;
+            for(const [key, value] of Object.entries(groceryData)){
+                let value1 = value;
+                console.log("grocery item found");
+                console.log(value1);
+                famArr.add(value1);
+                queryData[counter] = {groceryId: value1};
+                counter++;
+            }
+            setGroceryItems(queryData);
+            setLoading(loading+1);
+            console.log("grocery items yo");
+            console.log(groceryItems);
+        } 
+        else {
+            console.log("No data available");
         }
-        //setGroceryItems(famArr);
-        console.log(famArr);
-    } 
-    else {
-        console.log("No data available");
+        }).catch((error) => {
+        console.error(error);
+        });
     }
-    }).catch((error) => {
-    console.error(error);
-    });
-
     
-    
-    //displayed on the page
+    //displayed on the page 
     return (
         <div className="groceryListMid">
             <table>
                 <tr>
                     <th className="tableHeader">Grocery List</th>
                 </tr>
-                {data.map((value, key) => {
+                {groceryItems.map((value, key) => {
                     return (
                     <tr key={key}>
                         <td>{value.groceryId}</td>

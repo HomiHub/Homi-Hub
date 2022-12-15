@@ -32,7 +32,7 @@ function App() {
             <Route path="/family-homepage" element={<PrivateRoute><FamilyHomePage/></PrivateRoute>}></Route>
             <Route path="/forgot-password" element={<ForgotPassword />}></Route>
             <Route path="/chat-room" element={<PrivateRoute><ChatRoom/></PrivateRoute>}></Route>
-            <Route path="/customer-support" element={<PrivateRoute><CustomerSupport/></PrivateRoute>}></Route>
+            <Route path="/customer-support" element={<CustomerSupport/>}></Route>
             <Route path="*" element={<ErrorPage />}></Route>
           </Routes>
           <Footer></Footer>

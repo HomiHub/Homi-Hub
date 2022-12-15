@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import "./emergencyContacts.css"
+import "./emergencyContact.css"
 import {db, auth} from "../components/firebase";
 import { getDatabase, ref, get, child, push, update} from "firebase/database";
 
