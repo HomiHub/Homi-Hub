@@ -25,10 +25,10 @@ function GroceryList()
     const addGroceryItem = async () => {
         try{
           //get a unique key for the item
-          var itemRef = push(ref(db, `families/-NDfcsZTM4BWrJoA9eRd/groceryList`),{
+          var itemRef = push(ref(db, `families/${familyID}/groceryList`),{
           })
           //add the item to the unique key
-          update(ref(db, `families/-NDfcsZTM4BWrJoA9eRd/groceryList`),{
+          update(ref(db, `families/${familyID}/groceryList`),{
             [itemRef.key]: newItem
           })
           setNewItem("");
