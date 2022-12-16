@@ -15,7 +15,7 @@ import MealChooser from '../MealChooser/Mealchooser';
 import { set, ref, child, update, remove, push, get, onValue } from "firebase/database";
 import SyncedGallery from '../syncedGallery/SyncedGallery'
 import {default as SyncedCalendar} from '../cal/Cal'
-import {default as WishList} from '../wishList/TodoList'
+import {default as WishList} from '../wishList/WishList'
 
 
 function FamilyHomePage() {
