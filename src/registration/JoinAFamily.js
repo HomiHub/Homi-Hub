@@ -28,29 +28,32 @@ function JoinAFamily() {
   let famArr = new Set();
   const familyNametoKeyMap = new Map();
   const familiesRef = ref(db, 'families');
-  get(familiesRef).then((snapshot) => {
-    if (snapshot.exists()) {
-      const data = snapshot.val();
-      for(const [key, value] of Object.entries(data)){
-        let value1 = value.familyName;
-        famArr.add(value1);
-        familyNametoKeyMap.set(value1, key);
+  if(loading){
+    get(familiesRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+        for(const [key, value] of Object.entries(data)){
+          let value1 = value.familyName;
+          famArr.add(value1);
+          familyNametoKeyMap.set(value1, key);
+        }
+        setFamilies(famArr);
+        setFamiliesKeyMap(familyNametoKeyMap);
+        setLoading(false);
       }
-      setFamilies(famArr);
-      setFamiliesKeyMap(familyNametoKeyMap);
-    }
-    else {
-      console.log("no data available");
-    }
-  } ).catch((error) => {
-    console.error(error);
-  } );
+      else {
+        console.log("no data available");
+      }
+    } ).catch((error) => {
+      console.error(error);
+    } );
+  }
+
 
 
   //we get the user from the auth component, it's different from
   //firebase auth
   const auth = useAuth();
-
   //create a family group and set the user as admin
   const createFamily = async () => {
     try{
